@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #ff6b9d;
+            --deep-rose: #c44569;
+            --blush: #ffc3a0;
+            --cream: #fff5e6;
+            --soft-shadow: rgba(196, 69, 105, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #ffe8d6 50%, var(--blush) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts background */
+        .heart-bg {
+            position: fixed;
+            font-size: 20px;
+            opacity: 0.15;
+            animation: float 15s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.15;
+            }
+            50% { 
+                transform: translateY(-100px) rotate(10deg);
+                opacity: 0.25;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px var(--soft-shadow);
+            max-width: 600px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: var(--deep-rose);
+            margin-bottom: 30px;
+            line-height: 1.2;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .big-heart {
+            font-size: 150px;
+            margin: 40px 0;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite, fadeIn 1s ease-out 0.9s both;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            animation: fadeIn 1s ease-out 1.2s both;
+            flex-wrap: wrap;
+        }
+
+        button {
+            font-family: 'Quicksand', sans-serif;
+            padding: 18px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .yes-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+        }
+
+        .no-btn {
+            background: white;
+            color: var(--deep-rose);
+            border: 2px solid var(--rose);
+        }
+
+        .no-btn:hover {
+            background: var(--cream);
+            transform: translateY(-3px);
+        }
+
+        .celebration {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .celebration h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--deep-rose);
+            margin: 30px 0;
+        }
+
+        .celebration p {
+            font-size: 1.3em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--rose);
+            position: fixed;
+            animation: confetti-fall 3s linear;
+            z-index: 1000;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .big-heart {
+                font-size: 100px;
+            }
+            .buttons {
+                flex-direction: column;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="heart-bg" style="top: 10%; left: 10%;">💕</div>
+    <div class="heart-bg" style="top: 20%; right: 15%; animation-delay: 2s;">💖</div>
+    <div class="heart-bg" style="bottom: 15%; left: 20%; animation-delay: 4s;">💗</div>
+    <div class="heart-bg" style="top: 60%; right: 10%; animation-delay: 1s;">💝</div>
+    <div class="heart-bg" style="bottom: 30%; left: 15%; animation-delay: 3s;">💕</div>
+    <div class="heart-bg" style="top: 40%; left: 5%; animation-delay: 5s;">💖</div>
+
+    <div class="container" id="mainContainer">
+        <div id="question">
+            <h1>Will You Be My Valentine?</h1>
+            
+            <!-- ADD YOUR FUNNY IMAGE HERE! -->
+            <!-- Option 1: Use a URL to an image online -->
+            <!-- <img src="YOUR_IMAGE_URL_HERE" alt="Funny picture" style="max-width: 400px; width: 90%; border-radius: 20px; margin: 30px 0;"> -->
+            
+            <!-- Option 2: For now, using a heart emoji as placeholder -->
+            <div class="big-heart">❤️</div>
+            
+            <!-- Instructions: Replace the heart emoji above with an <img> tag -->
+            <!-- Example: <img src="https://i.imgur.com/yourimage.jpg" alt="Funny pic" style="max-width: 400px; width: 90%; border-radius: 20px; margin: 30px 0;"> -->
+
+            <div class="buttons">
+                <button class="yes-btn" id="yesBtn" onclick="sayYes()">Yes</button>
+                <button class="no-btn" onclick="sayNo(this)">No</button>
+            </div>
+        </div>
+
+        <div id="celebration" class="celebration">
+            <div class="big-heart">💕</div>
+            <h2>Yay! 🎉</h2>
+            <p>
+                Wew! Thankyou for this opportunity <3 ❤️
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function createConfetti() {
+            const colors = ['#ff6b9d', '#c44569', '#ffc3a0', '#ff8fab', '#f38ba0'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = confetti.style.width;
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        function sayYes() {
+            createConfetti();
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('celebration').style.display = 'block';
+        }
+
+        let noClickCount = 0;
+        const noMessages = [
+            "Are you sure?",
+            "Are you really sure?",
+            "Are you absolutely sure?",
+            "Really really sure?",
+            "100% sure?",
+            "Completely certain?",
+            "No doubt at all?",
+            "Final answer?",
+            "Think about it...",
+            "Still no?",
+            "You positive?",
+            "Maybe reconsider?",
+            "Last chance!",
+            "Still sure?",
+            "Really?"
+        ];
+
+        function sayNo(button) {
+            // Change the No button text
+            button.textContent = noMessages[noClickCount % noMessages.length];
+            
+            // Make Yes button bigger with each click
+            const yesBtn = document.getElementById('yesBtn');
+            noClickCount++;
+            
+            // Increase Yes button size significantly with each click
+            const newScale = 1 + (noClickCount * 0.2);
+            yesBtn.style.transform = 'scale(' + newScale + ')';
+            yesBtn.style.transition = 'transform 0.3s ease';
+            
+            // Make No button smaller with each click
+            const noScale = 1 - (noClickCount * 0.1);
+            // Don't let it get too small (minimum 0.3)
+            const finalNoScale = Math.max(0.3, noScale);
+            button.style.transform = 'scale(' + finalNoScale + ')';
+            button.style.transition = 'transform 0.3s ease';
+        }
+    </script>
+</body>
+</html>
